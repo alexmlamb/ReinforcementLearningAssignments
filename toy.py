@@ -5,31 +5,31 @@ states = ['a', 'b', 'c']
 
 mu = {}
 
-mu[('a','c')] = 0.4
+mu[('a','c')] = 0.3
 mu[('a','b')] = 0.2
-mu[('a','a')] = 0.4
+mu[('a','a')] = 0.5
 
-mu[('b','a')] = 0.5
-mu[('b','b')] = 0.3
-mu[('b','c')] = 0.2
+mu[('b','a')] = 0.1
+mu[('b','b')] = 0.8
+mu[('b','c')] = 0.1
 
-mu[('c','a')] = 0.3
-mu[('c','b')] = 0.2
-mu[('c','c')] = 0.5
+mu[('c','a')] = 0.4
+mu[('c','b')] = 0.5
+mu[('c','c')] = 0.1
 
 pi = {}
 
-pi[('a','c')] = 1.0
-pi[('a','b')] = 0.0
-pi[('a','a')] = 0.0
+pi[('a','c')] = 0.2
+pi[('a','b')] = 0.3
+pi[('a','a')] = 0.5
 
-pi[('b','a')] = 1.0
-pi[('b','b')] = 0.0
-pi[('b','c')] = 0.0
+pi[('b','a')] = 0.1
+pi[('b','b')] = 0.1
+pi[('b','c')] = 0.8
 
-pi[('c','a')] = 0.0
-pi[('c','b')] = 1.0
-pi[('c','c')] = 0.0
+pi[('c','a')] = 0.4
+pi[('c','b')] = 0.2
+pi[('c','c')] = 0.4
 
 rewards = {}
 
@@ -55,6 +55,7 @@ def sample(policy,start_state):
 def evaluate_policy(policy,start_state,num_steps):
     reward_sum = 0.0
     state = start_state
+
     for i in range(0, num_steps):
         
         state = sample(policy, state)
@@ -79,7 +80,7 @@ def retrace_evaluate_policy():
 
 if __name__ == "__main__":
 
-    num_steps = 5
+    num_steps = 20
     num_samples = 20000
 
     '''
